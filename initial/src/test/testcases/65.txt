@@ -1,2 +1,1 @@
-
-            func (Votien v) foo(Votien int) {return;}
+const VoTien = foo(Point{x: 5});

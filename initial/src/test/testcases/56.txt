@@ -1,1 +1,4 @@
-const VoTien = foo( a > b <= c ); 
+
+        func foo() {
+            arr[0] := Point{x: 1, y: 2};
+        }

@@ -1,1 +1,1 @@
-Program([FuncDecl(votien,[],VoidType,Block([If(IntLiteral(1),Block([Assign(Id(a),IntLiteral(1))]),Block([Assign(Id(a),IntLiteral(1))]))]))])
+Program([ConstDecl(VoTien,FuncCall(foo,[FuncCall(bar,[IntLiteral(3)])]))])

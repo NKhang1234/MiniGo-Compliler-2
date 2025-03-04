@@ -1,8 +1,1 @@
-func Compute() {
-                        for i := 0; i < 3; i += 1 {
-                            for j := 0; j < 2; j += 1 {
-                                putInt(i * j);
-                            }
-                        }
-                    }
-                    
+func (p Point) GetX() int { return p.x; }

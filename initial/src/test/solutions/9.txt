@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,Nil)])
+Program([ConstDecl(NullPtr,Nil)])

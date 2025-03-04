@@ -1,4 +1,1 @@
-
-            type Votien interface {
-                Add(x, y int) int;
-            }
+const VoTien = foo(a, b, c);

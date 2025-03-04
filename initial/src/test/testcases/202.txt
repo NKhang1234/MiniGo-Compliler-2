@@ -1,7 +1,1 @@
-
-                func Process() {
-                    for i, v := range numbers {
-                        putInt(v);
-                    }
-                }
-                
+func add(a int, b int) int { return a + b; }

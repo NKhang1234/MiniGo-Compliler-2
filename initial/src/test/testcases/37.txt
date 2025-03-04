@@ -1,7 +1,1 @@
-
-    func foo () {
-        continue;
-        break;
-        return;
-        return 1;
-    }
+const PiApprox = 3.14;

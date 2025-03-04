@@ -1,1 +1,1 @@
-Program([FuncDecl(foo,[],VoidType,Block([If(Id(a),Block([Return()])),If(Id(b),Block([Return()]),Block([Return()]))]))])
+Program([FuncDecl(foo,[],VoidType,Block([Return(MethodCall(Id(obj),getValue,[]))]))])

@@ -1,1 +1,1 @@
-Program([StructType(Votien,[(a,IntType)],[])])
+Program([ConstDecl(VoTien,FuncCall(foo,[UnaryOp(-,IntLiteral(10))]))])

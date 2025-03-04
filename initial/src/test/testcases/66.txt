@@ -1,4 +1,1 @@
-
-            type Votien struct {
-                a int;
-            }
+const VoTien = foo(x + y);

@@ -1,1 +1,1 @@
-Program([ConstDecl(a,ArrayCell(Id(a),[BinaryOp(IntLiteral(1),+,IntLiteral(2))]))])
+Program([ConstDecl(VoTien,FuncCall(foo,[ArrayCell(Id(arr),[IntLiteral(0),IntLiteral(1),IntLiteral(2)])]))])

@@ -1,1 +1,1 @@
-Program([ConstDecl(a,UnaryOp(!,UnaryOp(-,UnaryOp(!,IntLiteral(2)))))])
+Program([ConstDecl(VoTien,FuncCall(foo,[BinaryOp(IntLiteral(1),+,FloatLiteral(2.5)),BinaryOp(StringLiteral("a"),!=,StringLiteral("b"))]))])

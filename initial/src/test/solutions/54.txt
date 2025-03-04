@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,FuncCall(foo,[Id(id)]))])
+Program([FuncDecl(foo,[],VoidType,Block([Assign(Id(x),FuncCall(compute,[Id(y),IntLiteral(3)]))]))])

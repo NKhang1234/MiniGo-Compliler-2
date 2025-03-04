@@ -1,2 +1,1 @@
-
-            const a = true + false - true;
+const VoTien = foo(arr[x + 1][2] * 3);

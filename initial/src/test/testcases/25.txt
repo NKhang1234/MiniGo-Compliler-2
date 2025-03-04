@@ -1,1 +1,1 @@
-const VoTien = a[2][3]; 
+const Mixed = [3]ID{1, "text", nil};

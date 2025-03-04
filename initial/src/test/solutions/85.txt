@@ -1,1 +1,1 @@
-Program([ConstDecl(a,StructLiteral(ID,[(a,IntLiteral(1)),(b,BooleanLiteral(true))]))])
+Program([ConstDecl(VoTien,FuncCall(foo,[BinaryOp(FieldAccess(Id(p),x),+,FieldAccess(Id(q),y))]))])

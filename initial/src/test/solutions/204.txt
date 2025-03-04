@@ -1,1 +1,1 @@
-Error on line 2 col 31: ;
+Program([InterfaceType(Shape,[Prototype(Area,[],FloatType),Prototype(Perimeter,[],VoidType)])])

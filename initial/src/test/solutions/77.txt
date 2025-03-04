@@ -1,1 +1,1 @@
-Program([FuncDecl(votien,[],VoidType,Block([ForEach(Id(index),Id(value),ArrayCell(Id(array),[IntLiteral(2)]),Block([Return()]))]))])
+Program([ConstDecl(VoTien,FuncCall(foo,[ArrayLiteral([IntLiteral(1),IntLiteral(2)],IntType,[[IntLiteral(1),IntLiteral(2)]])]))])

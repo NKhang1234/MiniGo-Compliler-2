@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,FuncCall(foo,[IntLiteral(1),IntLiteral(2)]))])
+Program([VarDecl(ptr,Nil)])

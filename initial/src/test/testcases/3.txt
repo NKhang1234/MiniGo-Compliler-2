@@ -1,1 +1,1 @@
-const VoTien = 0o70; 
+const OctNum = 0o12;

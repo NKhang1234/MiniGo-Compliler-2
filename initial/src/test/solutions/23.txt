@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,FuncCall(foo,[]))])
+Program([ConstDecl(Compare,BinaryOp(IntLiteral(10),>,IntLiteral(5)))])

@@ -1,1 +1,1 @@
-Program([ConstDecl(a,ArrayLiteral([IntLiteral(1)],Id(ID),[StructLiteral(Votien,[])]))])
+Program([ConstDecl(VoTien,FuncCall(foo,[BinaryOp(StringLiteral("hello"),+,StringLiteral("world"))]))])

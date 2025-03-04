@@ -1,1 +1,4 @@
-const VoTien = foo( 1.0,true,false,nil,"votien" ); 
+
+        func foo() {
+            data[1] -= 5;
+        }

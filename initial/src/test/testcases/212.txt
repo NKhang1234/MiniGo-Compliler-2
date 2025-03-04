@@ -1,7 +1,1 @@
-func PrintArray() {
-                        var arr [3]int = {1, 2, 3};
-                        for _, value := range arr {
-                            putInt(value);
-                        }
-                    }
-                    
+var p = Point{x: 10, y: 3.14};

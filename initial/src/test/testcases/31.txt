@@ -1,6 +1,4 @@
 
-    type ID struct {
-        a int;
-        b ID;
-        c [2]int;
-    }
+        func foo() {
+            for _, val := range arr { putIntLn(val); }
+        }

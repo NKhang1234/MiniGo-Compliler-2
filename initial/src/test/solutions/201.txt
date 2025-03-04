@@ -1,1 +1,1 @@
-successful
+Program([ConstDecl(sum,BinaryOp(IntLiteral(10),+,IntLiteral(20)))])

@@ -1,1 +1,1 @@
-Program([ConstDecl(a,FieldAccess(StructLiteral(ID,[]),a))])
+Program([ConstDecl(VoTien,FuncCall(foo,[StructLiteral(Point,[(x,BinaryOp(ArrayCell(Id(arr),[IntLiteral(0)]),+,IntLiteral(1)))])]))])

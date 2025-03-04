@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,IntLiteral(161))])
+Program([ConstDecl(HexNum,IntLiteral(31))])

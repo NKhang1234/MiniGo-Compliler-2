@@ -1,1 +1,1 @@
-successful
+Program([ConstDecl(result,UnaryOp(!,BinaryOp(IntLiteral(1),+,BinaryOp(IntLiteral(2),*,IntLiteral(3)))))])

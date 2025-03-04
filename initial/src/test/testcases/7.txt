@@ -1,1 +1,1 @@
-const VoTien = false; 
+const IsFalse = false;

@@ -1,4 +1,1 @@
-func Calculate() {
-                        var x =;
-                    }
-                    
+type Shape interface { Area() float; Perimeter(); }

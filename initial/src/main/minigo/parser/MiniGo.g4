@@ -121,7 +121,7 @@ arrLitDimenList: OPEN_SQUARE (INT_LIT | ID) CLOSE_SQUARE arrLitDimenList |  OPEN
 arrBody: OPEN_CURVE elementList CLOSE_CURVE;//DONE
 
 elementList: element COMMA elementList | element;//DONE
-element: literalConst | structLit | arrBody;//DONE
+element: literalConst | structLit | arrBody | ID;//DONE
 // Struct Literal
 structLit: ID OPEN_CURVE structElList CLOSE_CURVE;//DONE
 structElList: structELPrime | ;//DONE

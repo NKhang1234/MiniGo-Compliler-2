@@ -1,1 +1,1 @@
-Program([FuncDecl(votien,[],VoidType,Block([If(IntLiteral(1),Block([Return()]))]))])
+Program([ConstDecl(VoTien,FuncCall(foo,[FieldAccess(Id(p),x)]))])

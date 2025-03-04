@@ -1,1 +1,4 @@
-const VoTien = a.b().c(1, 2); 
+
+        func foo() {
+            for var i = 0; i <= 5; i += 1 { continue; }
+        }

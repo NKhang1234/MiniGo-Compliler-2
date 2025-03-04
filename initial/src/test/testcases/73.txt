@@ -1,4 +1,1 @@
-
-            func votien() {
-                if(1) {return;}
-            }
+const VoTien = foo(p.x);

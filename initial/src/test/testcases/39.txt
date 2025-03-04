@@ -1,11 +1,4 @@
 
-    func foo () {
-        var a int = 1;
-        var a float = 1;
-        var a boolean;
-        var a string = 1;
-        var a = 1;
-        var a ID = 1;
-        var a [ID][1] int = 1;
-        const a = 1;
-    }
+        func foo() {
+            for var k = 0; k + 1 < 10; k += 2 { return k; }
+        }

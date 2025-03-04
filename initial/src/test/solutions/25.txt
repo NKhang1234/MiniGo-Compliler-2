@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,ArrayCell(Id(a),[IntLiteral(2),IntLiteral(3)]))])
+Program([ConstDecl(Mixed,ArrayLiteral([IntLiteral(3)],Id(ID),[IntLiteral(1),StringLiteral("text"),Nil]))])

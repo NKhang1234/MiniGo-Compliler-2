@@ -1,1 +1,1 @@
-Program([InterfaceType(Votien,[Prototype(Add,[IntType,IntType],IntType)])])
+Program([ConstDecl(VoTien,FuncCall(foo,[Id(a),Id(b),Id(c)]))])

@@ -1,9 +1,4 @@
 
-    func foo () {
-        a := 1;
-        a += 1;
-        a -= 1;
-        a *= 1;
-        a /= 1;
-        a %= 1;
-    }
+        func foo() {
+            return bar(1, 2);
+        }

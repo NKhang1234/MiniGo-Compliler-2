@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,IntLiteral(3))])
+Program([ConstDecl(BinNum,IntLiteral(10))])

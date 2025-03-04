@@ -285,7 +285,7 @@ class ASTGeneration(MiniGoVisitor):
             return [self.visit(ctx.element())] + self.visit(ctx.elementList())
         return [self.visit(ctx.element())]
 
-    # element: literalConst | structLit | arrBody;
+    # element: literalConst | structLit | arrBody | ID;
     def visitElement(self,ctx:MiniGoParser.ElementContext):
         return self.visit(ctx.getChild(0))
 

@@ -1,1 +1,4 @@
-const VoTien = foo( a * (1+2) ); 
+
+        func foo() {
+            obj.data[1] := obj.getValue()[0];
+        }

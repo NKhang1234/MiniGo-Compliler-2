@@ -1,6 +1,1 @@
-func PrintArray() {
-                        for _, value := range arr {
-                            putInt(value);
-                        }
-                    }
-                    
+func test() { p.GetX(); }

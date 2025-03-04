@@ -1,6 +1,1 @@
-func Process() {
-                        for i, v := range 10 {
-                            putInt(v);
-                        }
-                    }
-                    
+type Point struct { x int; y float; }

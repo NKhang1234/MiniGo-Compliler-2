@@ -1,2 +1,1 @@
-
-            const a = 0 || 1 || 2;
+const VoTien = foo(Struct{x: Point{y: 2}});

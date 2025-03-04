@@ -1,1 +1,1 @@
-Program([FuncDecl(foo,[],VoidType,Block([Continue(),Break(),Return(),Return(IntLiteral(1))]))])
+Program([ConstDecl(PiApprox,FloatLiteral(3.14))])
