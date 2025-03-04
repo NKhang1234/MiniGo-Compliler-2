@@ -1,2 +1,7 @@
-func foo () {
-        };
+
+                func Process() {
+                    for i, v := range numbers {
+                        putInt(v);
+                    }
+                }
+                

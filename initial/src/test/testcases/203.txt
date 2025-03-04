@@ -1,1 +1,6 @@
-func main({};
+func Process() {
+                        for i, v := range 10 {
+                            putInt(v);
+                        }
+                    }
+                    

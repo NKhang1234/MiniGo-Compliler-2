@@ -1,0 +1,1 @@
+func invalidSyntax() { if x == 5 { return true; } };

@@ -1,1 +1,2 @@
-ab?sVN
+
+            const a = a.b().c().d();

@@ -1,0 +1,1 @@
+var result = compute(5, 6) + otherFunc();

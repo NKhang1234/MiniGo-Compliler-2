@@ -1,0 +1,6 @@
+func PrintArray() {
+                        for _, value := range arr {
+                            putInt(value);
+                        }
+                    }
+                    

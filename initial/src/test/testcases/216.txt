@@ -1,0 +1,4 @@
+func AccessError() {
+                        var p Person;
+                        putStringLn(p.name); // Uninitialized field
+                    }

@@ -1,0 +1,14 @@
+
+            func CheckNumbers(x int) {
+                if x > 0 {
+                    if x % 2 == 0 {
+                        putStringLn("Positive Even");
+                    } else {
+                        putStringLn("Positive Odd");
+                    }
+                } else {
+                    putStringLn("Non-Positive");
+                }
+            }
+                                                     
+        

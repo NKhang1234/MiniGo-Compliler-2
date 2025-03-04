@@ -1,0 +1,6 @@
+
+        type Computer struct {
+            name string;
+            model string
+            brand string;                                                    
+        }      

@@ -1,0 +1,9 @@
+    
+            func khangKhang() {
+                var m int = Computer.arr[0] + 3 / 4;
+                var n = "Hello" / b[78];   
+                var o float;
+                                        
+                const khang = Table.fall + 5;
+            }                                       
+        

@@ -1,0 +1,1 @@
+func badSyntax() { while x < 5 { println(x); }; }

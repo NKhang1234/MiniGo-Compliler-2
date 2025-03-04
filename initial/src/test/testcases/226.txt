@@ -1,0 +1,1 @@
+const hehe = Bloom{age: 21, name: "khang"};

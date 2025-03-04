@@ -1,0 +1,15 @@
+
+                                    func Sub() {
+                                        for var a = 0; hehe().g.d.f[65]; d := 43 {
+                                            // loop body
+                                                for var a = 0; hehe().g.d.f[65]; d := 43 {
+                                                    // loop body
+                                                    for var a = 0; hehe().g.d.f[65]; d := 43 {
+                                                        // loop body
+                                                        break;
+                                                    }
+                                                    break;
+                                                }
+                                            break;
+                                        }
+                                    };

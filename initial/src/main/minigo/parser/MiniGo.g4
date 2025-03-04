@@ -28,51 +28,58 @@ options{
 	language=Python3;
 }
 
-program  : decl+ EOF ;
+program  : decl+ EOF ; //DONE
 
 // -------------------------------------- Parser -----------------------------------------------------------------------
 
 // ---------------------------- Declare ---------------------------------------- //
-decl: structDecl | interfaceDecl | varDecl | constDecl | funcDecl | methodStructDecl;
+decl: structDecl | interfaceDecl | varDecl | constDecl | funcDecl | methodStructDecl; //DONE
 
 // Type
-typee: (INT | FLOAT | BOOLEAN | STRING | arrType | ID); // ID is notified for 'struct' or 'interface'
-arrType:  dimenList (INT | FLOAT | BOOLEAN | STRING | ID); // ID is notified for 'struct' or 'interface'
-dimenList: OPEN_SQUARE (INT_LIT | ID) CLOSE_SQUARE dimenList |  (OPEN_SQUARE (INT_LIT | ID) CLOSE_SQUARE); // ID is notified for 'constant'
+typee: (INT | FLOAT | BOOLEAN | STRING | arrType | ID); // ID is notified for 'struct' or 'interface' //DONE
+arrType:  dimenList (INT | FLOAT | BOOLEAN | STRING | ID); // ID is notified for 'struct' or 'interface' //DONE
+dimenList: OPEN_SQUARE (INT_LIT | ID) CLOSE_SQUARE dimenList |  (OPEN_SQUARE (INT_LIT | ID) CLOSE_SQUARE); // ID is notified for 'constant' //DONE
 
 // Struct Declare
-structDecl: TYPE ID STRUCT OPEN_CURVE structBody CLOSE_CURVE SEMICOLON;
-structBody: listField;
-listField: field listField | field;
-field: ID typee SEMICOLON;
+structDecl: TYPE ID STRUCT OPEN_CURVE bodyList CLOSE_CURVE SEMICOLON; //DONE
+bodyList: structEl bodyList | structEl; //DONE
+structEl: field; //DONE
+field: ID typee SEMICOLON; //DONE
 
 // Interface Declare
-interfaceDecl: TYPE ID INTERFACE OPEN_CURVE interfaceBody CLOSE_CURVE SEMICOLON;
-interfaceBody: listMethod;
+interfaceDecl: TYPE ID INTERFACE OPEN_CURVE interfaceBody CLOSE_CURVE SEMICOLON;//DONE
+interfaceBody: listMethod;//DONE
 
-listMethod: method listMethod | method;
-method: ID OPEN_ROUND paramList CLOSE_ROUND typee? SEMICOLON;
+listMethod: method listMethod | method;//DONE
+method: ID OPEN_ROUND paramList CLOSE_ROUND typee? SEMICOLON;//DONE
 
-paramList: paramPrime | ;
-paramPrime: param COMMA paramPrime | param;
-param: nameList typee;
+paramList: paramPrime | ;//DONE 
+paramPrime: param COMMA paramPrime | param; //DONE
+param: nameList typee; //DONE
 
-nameList: ID COMMA nameList | ID;
+nameList: ID COMMA nameList | ID; //DONE
 
 // Variable Declare
-varDecl: VAR ID (typee ASSIGN expr | ASSIGN expr | typee) SEMICOLON;
+// varDecl: VAR ID (typee ASSIGN expr | ASSIGN expr | typee) SEMICOLON;
+varDecl: VAR ID typee ASSIGN expr SEMICOLON //DONE
+        | VAR ID ASSIGN expr SEMICOLON
+        | VAR ID typee SEMICOLON;
 
 // Constant Declare
-constDecl: CONST ID ASSIGN (literalConst | expr) SEMICOLON;
-literalConst: (INT_LIT | FLOAT_LIT | STRING_LIT | TRUE | FALSE | NIL);
+constDecl: CONST ID ASSIGN expr SEMICOLON;//DONE
+literalConst: (INT_LIT | FLOAT_LIT | STRING_LIT | TRUE | FALSE | NIL);//DONE
 
 // Function Declare
-funcDecl: 'func' ID OPEN_ROUND paramList CLOSE_ROUND typee? OPEN_CURVE funcBody CLOSE_CURVE SEMICOLON;
-funcBody: statementList;
+funcDecl: 'func' ID OPEN_ROUND funcParamList CLOSE_ROUND typee? OPEN_CURVE funcBody CLOSE_CURVE SEMICOLON;
+funcParamList: funcParamPrime | ;//DONE 
+funcParamPrime: funcParam COMMA funcParamPrime | funcParam; //DONE
+funcParam: nameList typee; //DONE
+
+funcBody: statementList; //DONE
 
 // Method for Struct Declare
-methodStructDecl: 'func' OPEN_ROUND ID ID CLOSE_ROUND ID OPEN_ROUND paramList CLOSE_ROUND typee? OPEN_CURVE funcBody CLOSE_CURVE SEMICOLON; // The second 'ID' is 'struct' and 'interface'
-
+methodStructDecl: 'func' OPEN_ROUND ID ID CLOSE_ROUND ID OPEN_ROUND funcParamList CLOSE_ROUND typee? OPEN_CURVE funcBody CLOSE_CURVE SEMICOLON; // The second 'ID' is 'struct' and 'interface'
+//DONE
 // ---------------------------- Expression ---------------------------------------- //
 
 /* // Array Accessing Element
@@ -107,21 +114,25 @@ arrStructAccess: arrStructAccess accessList | accessList | arrAccess;
 accessList: positionList | structAccess; */
 
 // Array Literal
-arrLit: arrType arrBody;
-arrBody: OPEN_CURVE elementList CLOSE_CURVE;
-elementList: element COMMA elementList | element;
-element: literalConst | structLit | arrBody;
+arrLit: arrLitDimenList (INT | FLOAT | BOOLEAN | STRING | ID) arrBody;//DONE
+
+arrLitDimenList: OPEN_SQUARE (INT_LIT | ID) CLOSE_SQUARE arrLitDimenList |  OPEN_SQUARE (INT_LIT | ID) CLOSE_SQUARE;//DONE
+
+arrBody: OPEN_CURVE elementList CLOSE_CURVE;//DONE
+
+elementList: element COMMA elementList | element;//DONE
+element: literalConst | structLit | arrBody;//DONE
 // Struct Literal
-structLit: ID OPEN_CURVE structElList CLOSE_CURVE;
-structElList: structELPrime | ;
-structELPrime: structEL COMMA structELPrime | structEL;
-structEL:ID COLON expr;
+structLit: ID OPEN_CURVE structElList CLOSE_CURVE;//DONE
+structElList: structELPrime | ;//DONE
+structELPrime: structEL COMMA structELPrime | structEL;//DONE
+structEL:ID COLON expr;//DONE
 
 // Function call
-funcCall: ID OPEN_ROUND argumentList CLOSE_ROUND;
-argumentList: argumentListPrime | ;
-argumentListPrime: argument COMMA argumentListPrime | argument;
-argument: expr | arrBody;
+funcCall: ID OPEN_ROUND argumentList CLOSE_ROUND;//DONE
+argumentList: argumentListPrime | ;//DONE
+argumentListPrime: argument COMMA argumentListPrime | argument;//DONE
+argument: expr;//DONE
 
 /* // Method Call
 methodCall: exprM DOT ID OPEN_ROUND argumentList CLOSE_ROUND; // Method Call is a func call with DOT => Can be described in expr6
@@ -135,63 +146,72 @@ exprM6: OPEN_ROUND exprM CLOSE_ROUND | operandM;
 operandM: literal | arrStructAccess | ID; */
 
 // Expression
-expr: expr OR expr1 | expr1;
-expr1: expr1 AND expr2 | expr2;
-expr2: expr2 (EQUAL | NOT_EQUAL | LESS_THAN | LESS_EQUAL | GREATER_THAN | GREATER_EQUAL) expr3 | expr3;
-expr3: expr3 (PLUS | MINUS) expr4 | expr4;
-expr4: expr4 (MULTI | DIV | MODULO) expr5 | expr5;
-expr5: ('!' | '-') expr5 | expr6;
-expr6: expr6 OPEN_SQUARE expr CLOSE_SQUARE| expr6 DOT ID | expr6 DOT funcCall| expr7;// access array | struct access | method call
-expr7: OPEN_ROUND expr CLOSE_ROUND | operand;
-operand: literal | funcCall | ID;
+expr: expr OR expr1 | expr1;//DONE
+expr1: expr1 AND expr2 | expr2;//DONE
+expr2: expr2 (EQUAL | NOT_EQUAL | LESS_THAN | LESS_EQUAL | GREATER_THAN | GREATER_EQUAL) expr3 | expr3;//DONE
+expr3: expr3 (PLUS | MINUS) expr4 | expr4;//DONE
+expr4: expr4 (MULTI | DIV | MODULO) expr5 | expr5;//DONE
+expr5: (NOT | MINUS) expr5 | expr6;//DONE
+expr6: expr6 indexList | expr6 DOT ID | expr6 DOT ID OPEN_ROUND argumentList CLOSE_ROUND | expr7;// access array | struct access | method call //DONE
+expr7: OPEN_ROUND expr CLOSE_ROUND | operand;//DONE
+operand: literal | funcCall | ID;//DONE
 
-literal: literalConst | arrLit | structLit;
+literal: literalConst | arrLit | structLit;//DONE
+indexList: OPEN_SQUARE expr CLOSE_SQUARE indexList | OPEN_SQUARE expr CLOSE_SQUARE;//DONE
 
 // ---------------------------- Statement ---------------------------------------- //
-statement: (varDeclStatement | constDeclStatement | assignment | ifStatement | forStatement | breakStatement | continueStatement | callStatement | returnStatement) SEMICOLON;
-statementList: statement statementList | statement;
+statementList: statementListPrime | ;
+statementListPrime: statement statementListPrime | statement;//DONE
+statement: varDecl | constDecl | assignment | ifStatement | forStatement | breakStatement | continueStatement | callStatement | returnStatement;//DONE
 
-// Variable and Constant Declaration
+/* // Variable and Constant Declaration
 varDeclStatement: VAR ID (typee ASSIGN expr | ASSIGN expr | typee);
-constDeclStatement: CONST ID ASSIGN (literalConst | expr);
+constDeclStatement: CONST ID ASSIGN (literalConst | expr); */
 
 // Assignemt Statement
-assignment: lhs assignOperator rhs;
-lhs: lhs OPEN_SQUARE expr CLOSE_SQUARE| lhs DOT ID | ID;
-assignOperator: ASSIGN1 | PLUS_EQUAL| MINUS_EQUAL | MULTI_EQUAL | DIV_EQUAL | MODULO_EQUAL;
-rhs: expr;
+assignment: lhs (ASSIGN1 | PLUS_EQUAL| MINUS_EQUAL | MULTI_EQUAL | DIV_EQUAL | MODULO_EQUAL) rhs SEMICOLON;//DONE
+lhs: lhs indexList | lhs DOT ID | ID | exprLhs;//DONE
+exprLhs: OPEN_ROUND expr CLOSE_ROUND | operand;//DONE
+rhs: expr;//DONE
 
 // If Statement
-ifStatement: IF OPEN_ROUND expr CLOSE_ROUND OPEN_CURVE statementList CLOSE_CURVE elifList (ELSE OPEN_CURVE statementList CLOSE_CURVE)?;
 
-elifList: eliff elifList | ;
-eliff: ELSE IF OPEN_ROUND expr CLOSE_ROUND OPEN_CURVE statementList CLOSE_CURVE;
+// ifStatement: IF OPEN_ROUND expr CLOSE_ROUND OPEN_CURVE statementList CLOSE_CURVE elifList (ELSE OPEN_CURVE statementList CLOSE_CURVE)? SEMICOLON;
+
+// elifList: eliff elifList | ;
+// eliff: ELSE IF OPEN_ROUND expr CLOSE_ROUND OPEN_CURVE statementList CLOSE_CURVE;
+
+ifStatement: iff SEMICOLON;
+iff: IF OPEN_ROUND expr CLOSE_ROUND OPEN_CURVE statementList CLOSE_CURVE elseIf;
+elseIf: ELSE IF OPEN_ROUND expr CLOSE_ROUND OPEN_CURVE statementList CLOSE_CURVE elseIf 
+        | ELSE OPEN_CURVE statementList CLOSE_CURVE 
+        | ;
 
 // For Statememt
-forStatement: forBasic | forInitial | forRange;
+forStatement: forBasic | forInitial | forRange;//DONE
 
-forBasic: FOR expr OPEN_CURVE statementList CLOSE_CURVE;
+forBasic: FOR expr OPEN_CURVE statementList CLOSE_CURVE SEMICOLON;//DONE
 
-forInitial: FOR initialization SEMICOLON condition SEMICOLON update OPEN_CURVE statementList CLOSE_CURVE;
-initialization: assignScalar | varDeclInitial;
-varDeclInitial: VAR ID typee? ASSIGN expr;
-condition: expr;
-update: assignScalar;
-assignScalar: ID assignOperator expr;
+forInitial: FOR initialization SEMICOLON condition SEMICOLON update OPEN_CURVE statementList CLOSE_CURVE SEMICOLON;//DONE
+initialization: assignScalar | varDeclInitial;//DONE
+varDeclInitial: VAR ID typee? ASSIGN expr;//DONE
+condition: expr;//DONE
+update: assignScalar;//DONE
+assignScalar: ID (ASSIGN1 | PLUS_EQUAL| MINUS_EQUAL | MULTI_EQUAL | DIV_EQUAL | MODULO_EQUAL) expr;//DONE
 
-forRange: FOR (ID | '_') COMMA ID ASSIGN1 RANGE expr OPEN_CURVE statementList CLOSE_CURVE;
+forRange: FOR (ID | UNDERSCORE) COMMA ID ASSIGN1 RANGE expr OPEN_CURVE statementList CLOSE_CURVE SEMICOLON;//DONE
 
 // Break Statememt
-breakStatement: BREAK;
+breakStatement: BREAK SEMICOLON;//DONE
 
 // Continue Statement
-continueStatement: CONTINUE;
+continueStatement: CONTINUE SEMICOLON;//DONE
 
 // Function and Method Call Statement
-callStatement: funcCall | expr DOT funcCall;
+callStatement: (funcCall | expr6 DOT ID OPEN_ROUND argumentList CLOSE_ROUND) SEMICOLON;//DONE
 
 // Return Statement
-returnStatement: RETURN expr?;
+returnStatement: RETURN expr? SEMICOLON;//DONE
 
 // -------------------------------------- End Parser -----------------------------------------------------------------------
 
@@ -252,6 +272,7 @@ OPEN_SQUARE: '[';
 CLOSE_SQUARE: ']';
 COMMA: ',';
 SEMICOLON: ';';
+UNDERSCORE: '_';
 
 // Identifier
 fragment Letter: [a-zA-Z];

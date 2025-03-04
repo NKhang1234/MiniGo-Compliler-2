@@ -1,0 +1,5 @@
+    
+            func Main() {
+                var arr [3]int = GetNumbers();
+            }
+        

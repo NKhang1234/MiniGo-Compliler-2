@@ -1,1 +1,1 @@
-Error Token "
+Program([ConstDecl(a,BinaryOp(Id(a),*,BinaryOp(Nil,-,StringLiteral("a"))))])

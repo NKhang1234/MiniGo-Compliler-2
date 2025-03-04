@@ -1,1 +1,1 @@
-ab,ErrorToken ?
+Program([ConstDecl(a,MethodCall(MethodCall(MethodCall(Id(a),b,[]),c,[]),d,[]))])

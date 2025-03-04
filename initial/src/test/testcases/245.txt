@@ -1,0 +1,1 @@
+func invalidFunc(a, b, int c) string { return "test"; }

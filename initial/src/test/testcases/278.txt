@@ -1,0 +1,1 @@
+func myFunc(x int, y float, z bool) { return x * y + z; };

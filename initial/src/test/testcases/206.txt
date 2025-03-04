@@ -1,0 +1,6 @@
+func LoopError() {
+                        for ;; {
+                            putString("Infinite Loop");
+                        }
+                    }
+                    

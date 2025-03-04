@@ -1,0 +1,1 @@
+Program([FuncDecl(foo,[],VoidType,Block([If(IntLiteral(1),[Return(expr=None)],If(IntLiteral(2),[Return(expr=None)],If(IntLiteral(3),[Return(expr=None)],[Return(expr=None)]))),If(IntLiteral(1),[Return(expr=None)],If(IntLiteral(2),[Return(expr=None)],If(IntLiteral(3),[Return(expr=None)])))]))])

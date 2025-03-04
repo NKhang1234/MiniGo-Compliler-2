@@ -1,0 +1,1 @@
+func nested() { if (x < 5) { if (y > 2) return x * y; else return y; } else return x; };

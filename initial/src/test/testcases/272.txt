@@ -1,0 +1,1 @@
+var user = Account{id: 123, balance: 1000.0};

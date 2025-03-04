@@ -1,0 +1,6 @@
+
+                func Main() {
+                    var result int = Sum(5, 3);
+                    putInt(result);
+                }
+                

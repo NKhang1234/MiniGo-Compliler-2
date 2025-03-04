@@ -1,1 +1,2 @@
-abc
+
+            const a = ID {}.a[2];
