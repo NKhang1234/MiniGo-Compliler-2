@@ -1,1 +1,2 @@
-const VoTien = foo("hello" + "world");
+
+            const a = [1]ID{Votien{}};

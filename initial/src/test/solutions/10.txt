@@ -1,1 +1,1 @@
-Program([ConstDecl(EmptyObj,StructLiteral(Data,[]))])
+Program([ConstDecl(VoTien,StructLiteral(STRUCT,[]))])

@@ -1,1 +1,1 @@
-Program([ConstDecl(Message,StringLiteral("Hello World"))])
+Program([ConstDecl(VoTien,StringLiteral("votien"))])

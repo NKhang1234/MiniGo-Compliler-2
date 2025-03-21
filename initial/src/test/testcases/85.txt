@@ -1,1 +1,2 @@
-const VoTien = foo(p.x + q.y);
+
+            const a = ID{a: 1, b: true};

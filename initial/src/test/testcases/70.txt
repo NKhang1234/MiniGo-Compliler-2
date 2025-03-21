@@ -1,1 +1,4 @@
-const VoTien = foo(x >= 5);
+
+            func votien() {
+                a += 1;
+            }

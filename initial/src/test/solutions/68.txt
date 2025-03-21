@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,FuncCall(foo,[Id(a),Id(b),Id(c)]))])
+Program([ConstDecl(nhatKhang,FuncCall(foo,[Id(a),Id(b),Id(c)]))])

@@ -59,7 +59,7 @@ class ASTGeneration(MiniGoVisitor):
                     num = int(numText[2:], 16)
                 else:
                     num = int(numText)
-                return [IntLiteral(num)] + self.visit(ctx.dimenList())
+                return [IntLiteral(ctx.INT_LIT().getText())] + self.visit(ctx.dimenList())
             else:
                 return [Id(ctx.ID().getText())] + self.visit(ctx.dimenList())
         else:
@@ -74,7 +74,7 @@ class ASTGeneration(MiniGoVisitor):
                     num = int(numText[2:], 16)   
                 else:
                     num = int(numText)    
-                return [IntLiteral(num)]
+                return [IntLiteral(ctx.INT_LIT().getText())]
             else:
                 return [Id(ctx.ID().getText())]
 
@@ -177,7 +177,7 @@ class ASTGeneration(MiniGoVisitor):
                 num = int(numText[2:], 16) 
             else:
                 num = int(numText)      
-            return IntLiteral(num)
+            return IntLiteral(ctx.INT_LIT().getText())
         elif ctx.FLOAT_LIT():
             return FloatLiteral(float(ctx.FLOAT_LIT().getText()))
         elif ctx.STRING_LIT():
@@ -255,7 +255,7 @@ class ASTGeneration(MiniGoVisitor):
                     num = int(numText[2:], 16) 
                 else:
                     num = int(numText) 
-                return [IntLiteral(num)] + self.visit(ctx.arrLitDimenList())
+                return [IntLiteral(ctx.INT_LIT().getText())] + self.visit(ctx.arrLitDimenList())
             else:
                 return [Id(ctx.ID().getText())] + self.visit(ctx.arrLitDimenList())
         else: 
@@ -270,7 +270,7 @@ class ASTGeneration(MiniGoVisitor):
                     num = int(numText[2:], 16) 
                 else:
                     num = int(numText)
-                return [IntLiteral(num)]
+                return [IntLiteral(ctx.INT_LIT().getText())]
             else:
                 return [Id(ctx.ID().getText())]
             

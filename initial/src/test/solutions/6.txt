@@ -1,1 +1,1 @@
-Program([ConstDecl(IsTrue,BooleanLiteral(true))])
+Program([ConstDecl(VoTien,BooleanLiteral(true))])

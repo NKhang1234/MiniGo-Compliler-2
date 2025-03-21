@@ -1,1 +1,1 @@
-Program([ConstDecl(Value,FuncCall(getInt,[]))])
+Program([ConstDecl(VoTien,UnaryOp(!,UnaryOp(-,IntLiteral(1))))])

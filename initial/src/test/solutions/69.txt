@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,FuncCall(foo,[BinaryOp(BinaryOp(IntLiteral(1),*,Id(x)),+,BinaryOp(IntLiteral(2),/,Id(y)))]))])
+Program([FuncDecl(votien,[],VoidType,Block([VarDecl(a,IntType),ConstDecl(a,Nil)]))])

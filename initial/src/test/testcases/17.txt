@@ -1,1 +1,1 @@
-const Matrix = [2][2]int{{1, 2}, {3, 4}};
+const VoTien = 1 >= 2 <= 3 > 4 < 5 == 6 != 7; 

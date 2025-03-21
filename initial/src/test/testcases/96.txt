@@ -1,1 +1,2 @@
-const VoTien = foo(-x * y);
+
+            const a = 1 >= 2 + 3;

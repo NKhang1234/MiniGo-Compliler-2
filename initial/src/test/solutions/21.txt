@@ -1,1 +1,1 @@
-Program([ConstDecl(NegVal,UnaryOp(-,IntLiteral(42)))])
+Program([ConstDecl(VoTien,Id(a))])

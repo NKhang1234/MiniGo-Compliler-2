@@ -1,1 +1,1 @@
-const SciNum = 2.5e2;
+const VoTien = [1][2] STRUCT {{1, {3}}, {2}}; 

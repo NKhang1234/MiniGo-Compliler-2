@@ -1,1 +1,1 @@
-Program([FuncDecl(foo,[],VoidType,Block([Assign(ArrayCell(Id(arr),[IntLiteral(0)]),StructLiteral(Point,[(x,IntLiteral(1)),(y,IntLiteral(2))]))]))])
+Program([ConstDecl(VoTien,FuncCall(foo,[BinaryOp(BinaryOp(Id(a),>,Id(b)),<=,Id(c))]))])

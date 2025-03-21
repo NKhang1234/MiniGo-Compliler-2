@@ -1,1 +1,1 @@
-const HexNum = 0x1F;
+const VoTien = 0Xa1; 

@@ -1,1 +1,8 @@
-const VoTien = foo(bar(3));
+
+            func votien() {
+                if(1) {
+                    a := 1;
+                } else {
+                    a := 1;
+                }
+            }

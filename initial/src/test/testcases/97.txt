@@ -1,1 +1,2 @@
-const VoTien = foo(obj.get()[1]);
+
+            const a = a[1][2][3][4];

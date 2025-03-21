@@ -1,1 +1,1 @@
-Program([ConstDecl(Flag,BinaryOp(BooleanLiteral(true),&&,BooleanLiteral(false)))])
+Program([ConstDecl(VoTien,BinaryOp(BinaryOp(IntLiteral(1),+,IntLiteral(2)),*,IntLiteral(3)))])

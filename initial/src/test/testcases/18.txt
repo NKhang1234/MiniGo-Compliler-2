@@ -1,1 +1,1 @@
-const Person = Person{name: "John", age: 25};
+const VoTien = 1 + 2 - 3; 

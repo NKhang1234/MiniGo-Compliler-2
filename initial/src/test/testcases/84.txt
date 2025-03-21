@@ -1,1 +1,2 @@
-const VoTien = foo(!true);
+
+            const a = [1][3]float{1.};

@@ -1,1 +1,2 @@
-const VoTien = foo(x < y <= z);
+
+            const a = 0 >= 1 <= 2;

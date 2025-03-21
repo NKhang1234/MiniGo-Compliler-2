@@ -1,1 +1,2 @@
-const VoTien = foo(arr[0][1][2]);
+
+            const a = a[1 + 2];

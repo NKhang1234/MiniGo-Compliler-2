@@ -1,1 +1,1 @@
-Program([FuncDecl(foo,[],VoidType,Block([Return(MethodCall(MethodCall(Id(obj),getInner,[]),value,[]))]))])
+Program([ConstDecl(VoTien,FuncCall(foo,[StructLiteral(Votien,[]),StructLiteral(Votien,[(a,IntLiteral(1))])]))])

@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,FuncCall(foo,[BinaryOp(Id(x),+,Id(y))]))])
+Program([StructType(Votien,[(a,IntType)],[])])

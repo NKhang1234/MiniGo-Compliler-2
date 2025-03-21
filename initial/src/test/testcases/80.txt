@@ -1,1 +1,2 @@
-const VoTien = foo(arr[1].field);
+
+            const a = 1 + 2 && 3;

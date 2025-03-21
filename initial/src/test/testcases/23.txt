@@ -1,1 +1,1 @@
-const Compare = 10 > 5;
+const VoTien = foo(); 

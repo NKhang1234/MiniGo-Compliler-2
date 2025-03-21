@@ -1,1 +1,2 @@
-const VoTien = foo(a.b.c.d);
+
+            const a = 0 && 1 && 2;

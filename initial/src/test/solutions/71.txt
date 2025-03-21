@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,FuncCall(foo,[BinaryOp(FloatLiteral(1.5),+,IntLiteral(2)),BinaryOp(StringLiteral("text"),==,StringLiteral("test"))]))])
+Program([FuncDecl(votien,[],VoidType,Block([Break(),Continue()]))])

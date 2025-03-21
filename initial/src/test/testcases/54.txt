@@ -1,4 +1,1 @@
-
-        func foo() {
-            x := compute(y, 3);
-        }
+const VoTien = foo( id ); 

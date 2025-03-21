@@ -1,1 +1,5 @@
-const VoTien = foo(1 * x + 2 / y);
+
+            func votien() {
+                var a int;
+                const a = nil;
+            }

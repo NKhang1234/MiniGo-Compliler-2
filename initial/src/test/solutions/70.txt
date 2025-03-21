@@ -1,1 +1,1 @@
-Program([ConstDecl(VoTien,FuncCall(foo,[BinaryOp(Id(x),>=,IntLiteral(5))]))])
+Program([FuncDecl(votien,[],VoidType,Block([Assign(Id(a),BinaryOp(Id(a),+,IntLiteral(1)))]))])

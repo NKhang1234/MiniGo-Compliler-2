@@ -1,4 +1,4 @@
 
-        func foo() {
-            arr[1 + 2] := 5;
+        func foo () {
+            for(1) {return;}
         }

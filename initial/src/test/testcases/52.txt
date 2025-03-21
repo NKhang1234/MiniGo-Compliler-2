@@ -1,4 +1,1 @@
-
-        func foo() {
-            return -arr[0];
-        }
+const VoTien = foo( 1 ); 

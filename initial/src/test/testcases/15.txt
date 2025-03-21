@@ -1,1 +1,1 @@
-var greeting = "Hello" + "World";
+const VoTien = 1 || 2 || 3; 

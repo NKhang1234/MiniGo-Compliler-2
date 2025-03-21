@@ -34,19 +34,19 @@ class ASTGenSuite(unittest.TestCase):
     def test_002(self):
         """Test a binary integer literal converted to decimal"""
         input = """const BinNum = 0b1010;"""
-        expect = Program([ConstDecl("BinNum", None, IntLiteral(10))])
+        expect = Program([ConstDecl("BinNum", None, IntLiteral('0b1010'))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 2))
 
     def test_003(self):
         """Test an octal integer literal converted to decimal"""
         input = """const OctNum = 0o12;"""
-        expect = Program([ConstDecl("OctNum", None, IntLiteral(10))])
+        expect = Program([ConstDecl("OctNum", None, IntLiteral('0o12'))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 3))
 
     def test_004(self):
         """Test a hexadecimal integer literal converted to decimal"""
         input = """const HexNum = 0x1F;"""
-        expect = Program([ConstDecl("HexNum", None, IntLiteral(31))])
+        expect = Program([ConstDecl("HexNum", None, IntLiteral('0x1F'))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 4))
 
     def test_005(self):
@@ -94,13 +94,13 @@ class ASTGenSuite(unittest.TestCase):
     def test_012(self):
         """Test variable declaration with explicit type and hex literal"""
         input = """var val int = 0xFF;"""
-        expect = Program([VarDecl("val", IntType(), IntLiteral(255))])
+        expect = Program([VarDecl("val", IntType(), IntLiteral('0xFF'))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 12))
 
     def test_013(self):
         """Test constant with octal integer"""
         input = """const OctVal = 0o777;"""
-        expect = Program([ConstDecl("OctVal", None, IntLiteral(511))])
+        expect = Program([ConstDecl("OctVal", None, IntLiteral('0o777'))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 13))
 
     def test_014(self):
@@ -596,97 +596,97 @@ class ASTGenSuite(unittest.TestCase):
 
     def test_062(self):
         """Test a constant with a function call with a boolean and integer"""
-        input = """const VoTien = foo(true, 42);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BooleanLiteral(True), IntLiteral(42)]))])
+        input = """const nhatKhang = foo(true, 42);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BooleanLiteral(True), IntLiteral(42)]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 62))
 
     def test_063(self):
         """Test a constant with a function call with a float and nil"""
-        input = """const VoTien = foo(3.14, nil);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [FloatLiteral(3.14), NilLiteral()]))])
+        input = """const nhatKhang = foo(3.14, nil);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [FloatLiteral(3.14), NilLiteral()]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 63))
 
     def test_064(self):
         """Test a constant with a function call with an array literal"""
-        input = """const VoTien = foo([2]int{1, 2});"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [ArrayLiteral([IntLiteral(2)], IntType(), 
+        input = """const nhatKhang = foo([2]int{1, 2});"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [ArrayLiteral([IntLiteral(2)], IntType(), 
                                                                                   [IntLiteral(1), IntLiteral(2)])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 64))
 
     def test_065(self):
         """Test a constant with a function call with a struct literal"""
-        input = """const VoTien = foo(Point{x: 5});"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [StructLiteral("Point", [("x", IntLiteral(5))])]))])
+        input = """const nhatKhang = foo(Point{x: 5});"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [StructLiteral("Point", [("x", IntLiteral(5))])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 65))
 
     def test_066(self):
         """Test a constant with a function call with a binary addition"""
-        input = """const VoTien = foo(x + y);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("+", Id("x"), Id("y"))]))])
+        input = """const nhatKhang = foo(x + y);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("+", Id("x"), Id("y"))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 66))
 
     def test_067(self):
         """Test a constant with a function call with a unary negation"""
-        input = """const VoTien = foo(-10);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [UnaryOp("-", IntLiteral(10))]))])
+        input = """const nhatKhang = foo(-10);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [UnaryOp("-", IntLiteral(10))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 67))
 
     def test_068(self):
         """Test a constant with a function call with multiple identifiers"""
-        input = """const VoTien = foo(a, b, c);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [Id("a"), Id("b"), Id("c")]))])
+        input = """const nhatKhang = foo(a, b, c);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [Id("a"), Id("b"), Id("c")]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 68))
 
     def test_069(self):
         """Test a constant with a function call with a complex binary expression"""
-        input = """const VoTien = foo(1 * x + 2 / y);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("+", 
+        input = """const nhatKhang = foo(1 * x + 2 / y);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("+", 
                                                                               BinaryOp("*", IntLiteral(1), Id("x")), 
                                                                               BinaryOp("/", IntLiteral(2), Id("y")))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 69))
 
     def test_070(self):
         """Test a constant with a function call with a relational operation"""
-        input = """const VoTien = foo(x >= 5);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp(">=", Id("x"), IntLiteral(5))]))])
+        input = """const nhatKhang = foo(x >= 5);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp(">=", Id("x"), IntLiteral(5))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 70))
 
     def test_071(self):
         """Test a constant with a function call with mixed literals and operations"""
-        input = """const VoTien = foo(1.5 + 2, "text" == "test");"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("+", FloatLiteral(1.5), IntLiteral(2)), 
+        input = """const nhatKhang = foo(1.5 + 2, "text" == "test");"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("+", FloatLiteral(1.5), IntLiteral(2)), 
                                                                      BinaryOp("==", StringLiteral("\"text\""), 
                                                                               StringLiteral("\"test\""))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 71))
 
     def test_072(self):
         """Test a constant with a function call with an array access"""
-        input = """const VoTien = foo(arr[0]);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [ArrayCell(Id("arr"), [IntLiteral(0)])]))])
+        input = """const nhatKhang = foo(arr[0]);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [ArrayCell(Id("arr"), [IntLiteral(0)])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 72))
 
     def test_073(self):
         """Test a constant with a function call with a field access"""
-        input = """const VoTien = foo(p.x);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [FieldAccess(Id("p"), "x")]))])
+        input = """const nhatKhang = foo(p.x);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [FieldAccess(Id("p"), "x")]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 73))
 
     def test_074(self):
         """Test a constant with a function call with a nested function call"""
-        input = """const VoTien = foo(bar(3));"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [FuncCall("bar", [IntLiteral(3)])]))])
+        input = """const nhatKhang = foo(bar(3));"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [FuncCall("bar", [IntLiteral(3)])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 74))
 
     def test_075(self):
         """Test a constant with a function call with a method call"""
-        input = """const VoTien = foo(obj.get());"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [MethCall(Id("obj"), "get", [])]))])
+        input = """const nhatKhang = foo(obj.get());"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [MethCall(Id("obj"), "get", [])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 75))
 
     def test_076(self):
         """Test a constant with a function call with multiple mixed arguments"""
-        input = """const VoTien = foo(1, x.y, true || false);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [IntLiteral(1), 
+        input = """const nhatKhang = foo(1, x.y, true || false);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [IntLiteral(1), 
                                                                      FieldAccess(Id("x"), "y"), 
                                                                      BinaryOp("||", BooleanLiteral(True), 
                                                                               BooleanLiteral(False))]))])
@@ -694,16 +694,16 @@ class ASTGenSuite(unittest.TestCase):
 
     def test_077(self):
         """Test a constant with a function call with a nested array literal"""
-        input = """const VoTien = foo([1][2]int{{1, 2}});"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [ArrayLiteral([IntLiteral(1), IntLiteral(2)], 
+        input = """const nhatKhang = foo([1][2]int{{1, 2}});"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [ArrayLiteral([IntLiteral(1), IntLiteral(2)], 
                                                                                   IntType(), 
                                                                                   [[IntLiteral(1), IntLiteral(2)]])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 77))
 
     def test_078(self):
         """Test a constant with a function call with a nested array access and operation"""
-        input = """const VoTien = foo(arr[x + 1][2] * 3);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("*", 
+        input = """const nhatKhang = foo(arr[x + 1][2] * 3);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("*", 
                                                                               ArrayCell(Id("arr"), 
                                                                                         [BinaryOp("+", Id("x"), IntLiteral(1)), 
                                                                                          IntLiteral(2)]), 
@@ -712,154 +712,152 @@ class ASTGenSuite(unittest.TestCase):
 
     def test_079(self):
         """Test a constant with a function call with a complex nested expression"""
-        input = """const VoTien = foo(!(x < y) || z);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("||", 
+        input = """const nhatKhang = foo(!(x < y) || z);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("||", 
                                                                               UnaryOp("!", BinaryOp("<", Id("x"), Id("y"))), 
                                                                               Id("z"))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 79))
 
     def test_080(self):
         """Test a constant with a function call with array and field access combination"""
-        input = """const VoTien = foo(arr[1].field);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [FieldAccess(ArrayCell(Id("arr"), [IntLiteral(1)]), 
+        input = """const nhatKhang = foo(arr[1].field);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [FieldAccess(ArrayCell(Id("arr"), [IntLiteral(1)]), 
                                                                                  "field")]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 80))
 
     def test_081(self):
         """Test a constant with a function call with a simple float literal"""
-        input = """const VoTien = foo(2.718);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [FloatLiteral(2.718)]))])
+        input = """const nhatKhang = foo(2.718);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [FloatLiteral(2.718)]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 81))
 
     def test_082(self):
         """Test a constant with a function call with a binary subtraction"""
-        input = """const VoTien = foo(10 - 5);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("-", IntLiteral(10), IntLiteral(5))]))])
+        input = """const nhatKhang = foo(10 - 5);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("-", IntLiteral(10), IntLiteral(5))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 82))
 
     def test_083(self):
         """Test a constant with a function call with a string concatenation"""
-        input = """const VoTien = foo("hello" + "world");"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("+", StringLiteral("\"hello\""), StringLiteral("\"world\""))]))])
+        input = """const nhatKhang = foo("hello" + "world");"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("+", StringLiteral("\"hello\""), StringLiteral("\"world\""))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 83))
 
     def test_084(self):
         """Test a constant with a function call with a boolean negation"""
-        input = """const VoTien = foo(!true);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [UnaryOp("!", BooleanLiteral(True))]))])
+        input = """const nhatKhang = foo(!true);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [UnaryOp("!", BooleanLiteral(True))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 84))
 
     def test_085(self):
         """Test a constant with a function call with a binary operation on field accesses"""
-        input = """const VoTien = foo(p.x + q.y);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("+", 
+        input = """const nhatKhang = foo(p.x + q.y);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("+", 
                                                                               FieldAccess(Id("p"), "x"), 
                                                                               FieldAccess(Id("q"), "y"))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 85))
 
     def test_086(self):
         """Test a constant with a function call with a struct literal with multiple fields"""
-        input = """const VoTien = foo(Point{x: 1, y: "test"});"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [StructLiteral("Point", 
+        input = """const nhatKhang = foo(Point{x: 1, y: "test"});"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [StructLiteral("Point", 
                                                                                   [("x", IntLiteral(1)), 
                                                                                    ("y", StringLiteral("\"test\""))])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 86))
 
     def test_087(self):
         """Test a constant with a function call with a nested binary operation"""
-        input = """const VoTien = foo(2 * (3 + 4));"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("*", IntLiteral(2), 
+        input = """const nhatKhang = foo(2 * (3 + 4));"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("*", IntLiteral(2), 
                                                                               BinaryOp("+", IntLiteral(3), IntLiteral(4)))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 87))
 
     def test_088(self):
         """Test a constant with a function call with a multi-level field access"""
-        input = """const VoTien = foo(a.b.c.d);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [FieldAccess(FieldAccess(FieldAccess(Id("a"), "b"), "c"), "d")]))])
+        input = """const nhatKhang = foo(a.b.c.d);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [FieldAccess(FieldAccess(FieldAccess(Id("a"), "b"), "c"), "d")]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 88))
 
     def test_089(self):
         """Test a constant with a function call with a nested struct literal"""
-        input = """const VoTien = foo(Struct{x: Point{y: 2}});"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [StructLiteral("Struct", 
+        input = """const nhatKhang = foo(Struct{x: Point{y: 2}});"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [StructLiteral("Struct", 
                                                                                   [("x", StructLiteral("Point", 
                                                                                                        [("y", IntLiteral(2))]))])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 89))
 
     def test_090(self):
         """Test a constant with a function call with a complex relational chain"""
-        input = """const VoTien = foo(x < y <= z);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("<=", BinaryOp("<", Id("x"), Id("y")), Id("z"))]))])
+        input = """const nhatKhang = foo(x < y <= z);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("<=", BinaryOp("<", Id("x"), Id("y")), Id("z"))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 90))
 
     def test_091(self):
         """Test a constant with a function call with an array access with computed index"""
-        input = """const VoTien = foo(arr[2 + x]);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [ArrayCell(Id("arr"), [BinaryOp("+", IntLiteral(2), Id("x"))])]))])
+        input = """const nhatKhang = foo(arr[2 + x]);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [ArrayCell(Id("arr"), [BinaryOp("+", IntLiteral(2), Id("x"))])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 91))
 
     def test_092(self):
         """Test a constant with a function call with a nested function call with operation"""
-        input = """const VoTien = foo(bar(x * 2));"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [FuncCall("bar", [BinaryOp("*", Id("x"), IntLiteral(2))])]))])
+        input = """const nhatKhang = foo(bar(x * 2));"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [FuncCall("bar", [BinaryOp("*", Id("x"), IntLiteral(2))])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 92))
 
     def test_093(self):
         """Test a constant with a function call with mixed types and operations"""
-        input = """const VoTien = foo(1 + 2.5, "a" != "b");"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("+", IntLiteral(1), FloatLiteral(2.5)), 
+        input = """const nhatKhang = foo(1 + 2.5, "a" != "b");"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("+", IntLiteral(1), FloatLiteral(2.5)), 
                                                                      BinaryOp("!=", StringLiteral("\"a\""), StringLiteral("\"b\""))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 93))
 
     def test_094(self):
         """Test a constant with a function call with a nested array literal and nil"""
-        input = """const VoTien = foo([2]int{0, nil});"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [ArrayLiteral([IntLiteral(2)], IntType(), 
+        input = """const nhatKhang = foo([2]int{0, nil});"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [ArrayLiteral([IntLiteral(2)], IntType(), 
                                                                                   [IntLiteral(0), NilLiteral()])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 94))
 
     def test_095(self):
         """Test a constant with a function call with a struct literal and field access"""
-        input = """const VoTien = foo(Point{x: p.y});"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [StructLiteral("Point", 
+        input = """const nhatKhang = foo(Point{x: p.y});"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [StructLiteral("Point", 
                                                                                   [("x", FieldAccess(Id("p"), "y"))])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 95))
 
     def test_096(self):
         """Test a constant with a function call with a complex unary and binary operation"""
-        input = """const VoTien = foo(-x * y);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("*", UnaryOp("-", Id("x")), Id("y"))]))])
+        input = """const nhatKhang = foo(-x * y);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("*", UnaryOp("-", Id("x")), Id("y"))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 96))
 
     def test_097(self):
         """Test a constant with a function call with a nested method call and array access"""
-        input = """const VoTien = foo(obj.get()[1]);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [ArrayCell(MethCall(Id("obj"), "get", []), 
+        input = """const nhatKhang = foo(obj.get()[1]);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [ArrayCell(MethCall(Id("obj"), "get", []), 
                                                                                [IntLiteral(1)])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 97))
 
     def test_098(self):
         """Test a constant with a function call with a multi-dimensional array access"""
-        input = """const VoTien = foo(arr[0][1][2]);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [ArrayCell(Id("arr"), [IntLiteral(0), IntLiteral(1), IntLiteral(2)])]))])
+        input = """const nhatKhang = foo(arr[0][1][2]);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [ArrayCell(Id("arr"), [IntLiteral(0), IntLiteral(1), IntLiteral(2)])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 98))
 
     def test_099(self):
         """Test a constant with a function call with a combination of operations and literals"""
-        input = """const VoTien = foo(1 + x * 2, true && false);"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [BinaryOp("+", IntLiteral(1), BinaryOp("*", Id("x"), IntLiteral(2))), 
+        input = """const nhatKhang = foo(1 + x * 2, true && false);"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [BinaryOp("+", IntLiteral(1), BinaryOp("*", Id("x"), IntLiteral(2))), 
                                                                      BinaryOp("&&", BooleanLiteral(True), BooleanLiteral(False))]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 99))
 
     def test_100(self):
         """Test a constant with a function call with a nested struct and array operation"""
-        input = """const VoTien = foo(Point{x: arr[0] + 1});"""
-        expect = Program([ConstDecl("VoTien", None, FuncCall("foo", [StructLiteral("Point", 
+        input = """const nhatKhang = foo(Point{x: arr[0] + 1});"""
+        expect = Program([ConstDecl("nhatKhang", None, FuncCall("foo", [StructLiteral("Point", 
                                                                                   [("x", BinaryOp("+", ArrayCell(Id("arr"), [IntLiteral(0)]), 
                                                                                                   IntLiteral(1)))])]))])
         self.assertTrue(TestAST.checkASTGen(input, str(expect), 100))
 
-
-
-
+    
 

@@ -1,4 +1,1 @@
-
-        func foo() {
-            if (x == 0) { arr[2] := nil; }
-        }
+const VoTien = foo( a.b.c ); 

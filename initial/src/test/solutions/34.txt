@@ -1,1 +1,1 @@
-Program([FuncDecl(foo,[],VoidType,Block([Assign(FieldAccess(Id(p),x),IntLiteral(100))]))])
+Program([MethodDecl(ID,Id(ID),FuncDecl(foo,[],VoidType,Block([VarDecl(a,IntLiteral(1))]))),MethodDecl(ID,Id(ID),FuncDecl(foo,[],IntType,Block([VarDecl(a,IntLiteral(1))]))),MethodDecl(ID,Id(ID),FuncDecl(foo,[],ArrayType(Id(ID),[IntLiteral(2)]),Block([VarDecl(a,IntLiteral(1))])))])

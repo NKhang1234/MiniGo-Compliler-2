@@ -1,1 +1,1 @@
-Program([ConstDecl(FloatNum,FloatLiteral(0.0123))])
+Program([ConstDecl(VoTien,FloatLiteral(0.1))])

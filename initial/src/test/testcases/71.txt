@@ -1,1 +1,5 @@
-const VoTien = foo(1.5 + 2, "text" == "test");
+
+            func votien() {
+                break;
+                continue;
+            }

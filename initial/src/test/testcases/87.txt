@@ -1,1 +1,2 @@
-const VoTien = foo(2 * (3 + 4));
+
+            const a = ID{b: true};

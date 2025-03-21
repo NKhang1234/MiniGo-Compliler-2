@@ -1,1 +1,1 @@
-Program([ConstDecl(Arr,ArrayLiteral([IntLiteral(2)],IntType,[IntLiteral(10),IntLiteral(20)]))])
+Program([ConstDecl(VoTien,BinaryOp(BinaryOp(IntLiteral(1),&&,IntLiteral(2)),&&,IntLiteral(3)))])

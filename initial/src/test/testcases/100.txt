@@ -1,1 +1,2 @@
-const VoTien = foo(Point{x: arr[0] + 1});
+
+            const a = ID {}.a;

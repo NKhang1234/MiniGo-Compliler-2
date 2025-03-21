@@ -1,4 +1,1 @@
-
-        func foo() {
-            if (a == b) { return 42; }
-        }
+const VoTien = a.b[2].c.d(); 

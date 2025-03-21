@@ -1,1 +1,1 @@
-var ptr = nil;
+const VoTien = foo(1, 2); 
